@@ -1,0 +1,769 @@
+[
+  {
+    "id": 1,
+    "name": "Programming basics",
+    "start": 1,
+    "end": 2,
+    "description": "Build your foundation",
+    "problems": [
+      {
+        "id": 101,
+        "title": "Input and output",
+        "topic_id": 1,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 102,
+        "title": "Count digits",
+        "topic_id": 1,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 103,
+        "title": "Reverse a number",
+        "topic_id": 1,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 104,
+        "title": "Check palindrome number",
+        "topic_id": 1,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 105,
+        "title": "GCD of two numbers",
+        "topic_id": 1,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 106,
+        "title": "Check prime number",
+        "topic_id": 1,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Sorting & complexity",
+    "start": 3,
+    "end": 4,
+    "description": "Understand the cost of your code",
+    "problems": [
+      {
+        "id": 201,
+        "title": "Selection sort",
+        "topic_id": 2,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 202,
+        "title": "Bubble sort",
+        "topic_id": 2,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 203,
+        "title": "Insertion sort",
+        "topic_id": 2,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 204,
+        "title": "Merge sort",
+        "topic_id": 2,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 205,
+        "title": "Quick sort",
+        "topic_id": 2,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Arrays & hashing",
+    "start": 5,
+    "end": 7,
+    "description": "Find patterns in everyday problems",
+    "problems": [
+      {
+        "id": 301,
+        "title": "Largest element in an array",
+        "topic_id": 3,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 302,
+        "title": "Second largest element",
+        "topic_id": 3,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 303,
+        "title": "Remove duplicates from sorted array",
+        "topic_id": 3,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 304,
+        "title": "Move zeroes",
+        "topic_id": 3,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 305,
+        "title": "Two Sum",
+        "topic_id": 3,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 306,
+        "title": "Maximum subarray sum",
+        "topic_id": 3,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 307,
+        "title": "Sort colors",
+        "topic_id": 3,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 308,
+        "title": "Majority element",
+        "topic_id": 3,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 309,
+        "title": "Set matrix zeroes",
+        "topic_id": 3,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 310,
+        "title": "Longest consecutive sequence",
+        "topic_id": 3,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Binary search",
+    "start": 8,
+    "end": 9,
+    "description": "Cut your search space in half",
+    "problems": [
+      {
+        "id": 401,
+        "title": "Binary search",
+        "topic_id": 4,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 402,
+        "title": "Search insert position",
+        "topic_id": 4,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 403,
+        "title": "First and last occurrence",
+        "topic_id": 4,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 404,
+        "title": "Search in rotated sorted array",
+        "topic_id": 4,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 405,
+        "title": "Find peak element",
+        "topic_id": 4,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 406,
+        "title": "Koko eating bananas",
+        "topic_id": 4,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Strings",
+    "start": 10,
+    "end": 10,
+    "description": "Get comfortable with text",
+    "problems": [
+      {
+        "id": 501,
+        "title": "Reverse words in a string",
+        "topic_id": 5,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 502,
+        "title": "Valid anagram",
+        "topic_id": 5,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 503,
+        "title": "Longest common prefix",
+        "topic_id": 5,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 504,
+        "title": "Isomorphic strings",
+        "topic_id": 5,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Recursion & backtracking",
+    "start": 11,
+    "end": 12,
+    "description": "Explore every possibility",
+    "problems": [
+      {
+        "id": 601,
+        "title": "Generate subsets",
+        "topic_id": 6,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 602,
+        "title": "Combination sum",
+        "topic_id": 6,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 603,
+        "title": "Generate permutations",
+        "topic_id": 6,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 604,
+        "title": "N-Queens",
+        "topic_id": 6,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 605,
+        "title": "Palindrome partitioning",
+        "topic_id": 6,
+        "difficulty": "Hard",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Linked lists",
+    "start": 13,
+    "end": 14,
+    "description": "Think in nodes and pointers",
+    "problems": [
+      {
+        "id": 701,
+        "title": "Reverse a linked list",
+        "topic_id": 7,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 702,
+        "title": "Middle of a linked list",
+        "topic_id": 7,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 703,
+        "title": "Detect a cycle",
+        "topic_id": 7,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 704,
+        "title": "Merge two sorted lists",
+        "topic_id": 7,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 705,
+        "title": "Remove nth node from end",
+        "topic_id": 7,
+        "difficulty": "Hard",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Bits & greedy",
+    "start": 15,
+    "end": 15,
+    "description": "Make every decision count",
+    "problems": [
+      {
+        "id": 801,
+        "title": "Single number",
+        "topic_id": 8,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 802,
+        "title": "Count set bits",
+        "topic_id": 8,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 803,
+        "title": "Assign cookies",
+        "topic_id": 8,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 804,
+        "title": "Jump game",
+        "topic_id": 8,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 805,
+        "title": "Merge intervals",
+        "topic_id": 8,
+        "difficulty": "Hard",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Sliding window",
+    "start": 16,
+    "end": 16,
+    "description": "Move efficiently through sequences",
+    "problems": [
+      {
+        "id": 901,
+        "title": "Maximum sum of a fixed window",
+        "topic_id": 9,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 902,
+        "title": "Longest substring without repeating characters",
+        "topic_id": 9,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 903,
+        "title": "Max consecutive ones III",
+        "topic_id": 9,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 904,
+        "title": "Minimum window substring",
+        "topic_id": 9,
+        "difficulty": "Hard",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Stacks & queues",
+    "start": 17,
+    "end": 18,
+    "description": "Keep your operations in order",
+    "problems": [
+      {
+        "id": 1001,
+        "title": "Implement stack using queues",
+        "topic_id": 10,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1002,
+        "title": "Valid parentheses",
+        "topic_id": 10,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1003,
+        "title": "Next greater element",
+        "topic_id": 10,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1004,
+        "title": "Daily temperatures",
+        "topic_id": 10,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1005,
+        "title": "Largest rectangle in histogram",
+        "topic_id": 10,
+        "difficulty": "Hard",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Trees & BSTs",
+    "start": 19,
+    "end": 21,
+    "description": "See the bigger structure",
+    "problems": [
+      {
+        "id": 1101,
+        "title": "Binary tree inorder traversal",
+        "topic_id": 11,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1102,
+        "title": "Level order traversal",
+        "topic_id": 11,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1103,
+        "title": "Maximum depth of binary tree",
+        "topic_id": 11,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1104,
+        "title": "Diameter of binary tree",
+        "topic_id": 11,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1105,
+        "title": "Lowest common ancestor",
+        "topic_id": 11,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1106,
+        "title": "Validate binary search tree",
+        "topic_id": 11,
+        "difficulty": "Hard",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Heaps",
+    "start": 22,
+    "end": 22,
+    "description": "Keep the best candidates close",
+    "problems": [
+      {
+        "id": 1201,
+        "title": "Kth largest element",
+        "topic_id": 12,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1202,
+        "title": "Top K frequent elements",
+        "topic_id": 12,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1203,
+        "title": "Merge K sorted lists",
+        "topic_id": 12,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1204,
+        "title": "Find median from data stream",
+        "topic_id": 12,
+        "difficulty": "Hard",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Graphs",
+    "start": 23,
+    "end": 25,
+    "description": "Connect the dots",
+    "problems": [
+      {
+        "id": 1301,
+        "title": "BFS traversal",
+        "topic_id": 13,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1302,
+        "title": "DFS traversal",
+        "topic_id": 13,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1303,
+        "title": "Number of islands",
+        "topic_id": 13,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1304,
+        "title": "Detect cycle in directed graph",
+        "topic_id": 13,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1305,
+        "title": "Course schedule",
+        "topic_id": 13,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1306,
+        "title": "Dijkstra shortest paths",
+        "topic_id": 13,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1307,
+        "title": "Disjoint set union",
+        "topic_id": 13,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1308,
+        "title": "Minimum spanning tree",
+        "topic_id": 13,
+        "difficulty": "Hard",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Dynamic programming",
+    "start": 26,
+    "end": 29,
+    "description": "Turn repeated work into progress",
+    "problems": [
+      {
+        "id": 1401,
+        "title": "Climbing stairs",
+        "topic_id": 14,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1402,
+        "title": "House robber",
+        "topic_id": 14,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1403,
+        "title": "Unique paths",
+        "topic_id": 14,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1404,
+        "title": "Coin change",
+        "topic_id": 14,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1405,
+        "title": "0/1 knapsack",
+        "topic_id": 14,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1406,
+        "title": "Longest common subsequence",
+        "topic_id": 14,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1407,
+        "title": "Longest increasing subsequence",
+        "topic_id": 14,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1408,
+        "title": "Edit distance",
+        "topic_id": 14,
+        "difficulty": "Hard",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Tries & advanced strings",
+    "start": 30,
+    "end": 30,
+    "description": "Complete your toolkit",
+    "problems": [
+      {
+        "id": 1501,
+        "title": "Implement trie",
+        "topic_id": 15,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1502,
+        "title": "Longest word with all prefixes",
+        "topic_id": 15,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1503,
+        "title": "KMP string matching",
+        "topic_id": 15,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1504,
+        "title": "Count distinct substrings",
+        "topic_id": 15,
+        "difficulty": "Hard",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Mixed revision",
+    "start": 31,
+    "end": 32,
+    "description": "Bring everything together",
+    "problems": [
+      {
+        "id": 1601,
+        "title": "Timed array practice",
+        "topic_id": 16,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1602,
+        "title": "Timed tree practice",
+        "topic_id": 16,
+        "difficulty": "Easy",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1603,
+        "title": "Timed graph practice",
+        "topic_id": 16,
+        "difficulty": "Medium",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      },
+      {
+        "id": 1604,
+        "title": "Mock interview",
+        "topic_id": 16,
+        "difficulty": "Hard",
+        "url": "https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?open=none"
+      }
+    ]
+  }
+]
