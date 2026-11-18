@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowDownToLine, ArrowRight, BookOpen, Check, CheckCircle2, ChevronRight, Circle, Clock3, Code2, ExternalLink, Flame, LayoutDashboard, ListChecks, Map, Pause, Play, Plus, RotateCcw, Search, Sparkles, Star, Target, Timer, X } from 'lucide-react';
+import { ToastContainer, toast } from 'react-toastify/unstyled';
 import seed from '../lib/seed.json';
 
 type Status = 'Todo' | 'In progress' | 'Solved' | 'Revisit';
@@ -31,7 +32,6 @@ export default function Home() {
   const [notes, setNotes] = useState('');
   const [revision, setRevision] = useState('');
   const [adding, setAdding] = useState(false);
-  const [message, setMessage] = useState('');
   const [busy, setBusy] = useState(false);
   const [seconds, setSeconds] = useState(25 * 60);
   const [running, setRunning] = useState(false);
@@ -40,11 +40,10 @@ export default function Home() {
 
   useEffect(() => { let alive = true; request<Data>('state').then(value => { if (alive) { setData(value); setMode('database'); } }).catch(() => {
     if (!alive) return;
-    try { const raw = localStorage.getItem(storageKey); if (raw) { const value = JSON.parse(raw); if (Array.isArray(value.problems) && Array.isArray(value.sessions)) setData(value); } } catch { setMessage('Could not restore browser data. Starting with the practice plan.'); }
+    try { const raw = localStorage.getItem(storageKey); if (raw) { const value = JSON.parse(raw); if (Array.isArray(value.problems) && Array.isArray(value.sessions)) setData(value); } } catch { toast.warning('Could not restore browser data. Starting with the practice plan.', { toastId: 'browser-restore' }); }
     setMode('browser');
   }); return () => { alive = false; }; }, []);
-  useEffect(() => { if (mode === 'browser') { try { localStorage.setItem(storageKey, JSON.stringify(data)); } catch { setMessage('Browser storage is full or unavailable. Export your progress to keep it.'); } } }, [data, mode]);
-  useEffect(() => { if (!message) return; const timeout = setTimeout(() => setMessage(''), 5000); return () => clearTimeout(timeout); }, [message]);
+  useEffect(() => { if (mode === 'browser') { try { localStorage.setItem(storageKey, JSON.stringify(data)); } catch { toast.warning('Browser storage is full or unavailable. Export your progress to keep it.', { toastId: 'browser-storage' }); } } }, [data, mode]);
   useEffect(() => { const tick = setInterval(() => setToday(dateKey()), 60000); return () => clearInterval(tick); }, []);
   useEffect(() => { if (!running) return; const tick = setInterval(() => { const left = Math.max(0, Math.ceil((deadline.current - Date.now()) / 1000)); setSeconds(left); if (left === 0) setRunning(false); }, 250); return () => clearInterval(tick); }, [running]);
   useEffect(() => { const handler = (event: KeyboardEvent) => { if (event.key === 'Escape') { setSelected(null); setAdding(false); } }; window.addEventListener('keydown', handler); return () => window.removeEventListener('keydown', handler); }, []);
@@ -70,29 +69,33 @@ export default function Home() {
     try {
       const updated = mode === 'database' ? await request<Problem>(`problems/${p.id}`, {method: 'PATCH', body: JSON.stringify(patch)}) : { ...p, ...patch, solved_at: patch.status ? patch.status === 'Solved' ? p.solved_at || new Date().toISOString() : null : p.solved_at };
       setData(old => ({ ...old, problems: old.problems.map(item => item.id === p.id ? updated : item) }));
+      if (patch.status !== undefined) toast.success(`Problem marked as ${updated.status}.`);
+      if (patch.starred !== undefined) {
+        toast.success(updated.starred ? 'Problem bookmarked.' : 'Bookmark removed.');
+      }
       return true;
-    } catch (error) { setMessage((error as Error).message); return false; } finally { setBusy(false); }
+    } catch (error) { toast.error((error as Error).message); return false; } finally { setBusy(false); }
   }
   function go(next: View) { setView(next); setTopic('all'); setQuery(''); setStatus('all'); setDifficulty('all'); }
   function openProblem(p: Problem) { setSelected(p); setNotes(p.notes); setRevision(p.revision_date || ''); }
-  async function saveNotes() { if (selected && await update(selected, {notes, revision_date: revision || null})) { setSelected(null); setMessage('Notes and revision date saved.'); } }
+  async function saveNotes() { if (selected && await update(selected, {notes, revision_date: revision || null})) { setSelected(null); toast.success('Notes and revision date saved.'); } }
   async function addProblem(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault(); if (busy) return; setBusy(true);
     const form = new FormData(event.currentTarget);
     const body = {title: String(form.get('title')).trim(), topic_id: Number(form.get('topic')), difficulty: String(form.get('difficulty')), url: String(form.get('url')).trim() || null};
-    if (!body.title) { setMessage('Enter a problem title.'); setBusy(false); return; }
-    if (body.url && !/^https?:\/\//i.test(body.url)) { setMessage('Use an http or https problem link.'); setBusy(false); return; }
+    if (!body.title) { toast.error('Enter a problem title.'); setBusy(false); return; }
+    if (body.url && !/^https?:\/\//i.test(body.url)) { toast.error('Use an http or https problem link.'); setBusy(false); return; }
     try {
       const p = mode === 'database' ? await request<Problem>('problems', {method:'POST', body:JSON.stringify(body)}) : {...body, url: body.url || '', id: Date.now(), status:'Todo' as Status, notes:'', starred:false, revision_date:null, solved_at:null};
-      setData(old => ({...old, problems:[...old.problems, p]})); setAdding(false); setMessage('Problem added to your practice list.');
-    } catch (error) { setMessage((error as Error).message); } finally { setBusy(false); }
+      setData(old => ({...old, problems:[...old.problems, p]})); setAdding(false); toast.success('Problem added to your practice list.');
+    } catch (error) { toast.error((error as Error).message); } finally { setBusy(false); }
   }
   async function logSession() {
     if (busy) return; setBusy(true);
-    try { const s = mode === 'database' ? await request<StudySession>('sessions', {method:'POST', body:JSON.stringify({minutes:25})}) : {id:Date.now(), minutes:25, created_at:new Date().toISOString()}; setData(old => ({...old, sessions:[...old.sessions,s]})); setSeconds(1500); setMessage('25-minute focus session saved. Well done!'); }
-    catch(error) { setMessage((error as Error).message); } finally { setBusy(false); }
+    try { const s = mode === 'database' ? await request<StudySession>('sessions', {method:'POST', body:JSON.stringify({minutes:25})}) : {id:Date.now(), minutes:25, created_at:new Date().toISOString()}; setData(old => ({...old, sessions:[...old.sessions,s]})); setSeconds(1500); toast.success('25-minute focus session saved. Well done!'); }
+    catch(error) { toast.error((error as Error).message); } finally { setBusy(false); }
   }
-  function exportProgress() { const url = URL.createObjectURL(new Blob([JSON.stringify(data,null,2)], {type:'application/json'})); const anchor = document.createElement('a'); anchor.href=url; anchor.download=`algotrail-${today}.json`; anchor.click(); URL.revokeObjectURL(url); setMessage('Progress exported.'); }
+  function exportProgress() { const url = URL.createObjectURL(new Blob([JSON.stringify(data,null,2)], {type:'application/json'})); const anchor = document.createElement('a'); anchor.href=url; anchor.download=`algotrail-${today}.json`; anchor.click(); URL.revokeObjectURL(url); toast.success('Progress exported.'); }
 
   function problemTable(problems: Problem[]) { return <div className="table-wrap"><table><thead><tr><th className="check-column">Done</th><th>Problem</th><th>Difficulty</th><th>Status</th><th className="star-column">Save</th></tr></thead><tbody>{problems.map(p => <tr key={p.id}>
     <td><button className={`check-btn ${p.status === 'Solved' ? 'checked' : ''}`} aria-label={`${p.status === 'Solved' ? 'Unmark' : 'Complete'} ${p.title}`} disabled={busy || mode === 'loading'} onClick={() => update(p,{status:p.status === 'Solved' ? 'Todo' : 'Solved'})}>{p.status === 'Solved' ? <Check size={14}/> : <span/>}</button></td>
@@ -121,7 +124,7 @@ export default function Home() {
       </> : view === 'My roadmap' ? <><div className="roadmap-summary"><Map size={22}/><div><strong>Your plan, your pace</strong><p>Study 2 hours a day, 6 days a week. Take longer whenever you need to.</p></div><span>{seed.filter(t=>data.problems.filter(p=>p.topic_id===t.id).every(p=>p.status==='Solved')).length} / 16 phases</span></div><div className="roadmap-grid">{seed.map(t => {const problems=data.problems.filter(p=>p.topic_id===t.id); const completed=problems.filter(p=>p.status==='Solved').length; return <button className={`roadmap-card ${t.id===currentTopic.id ? 'current' : ''}`} key={t.id} onClick={() => {go('Problems');setTopic(String(t.id));}}><div className="roadmap-top"><span className="phase-number">{completed===problems.length ? <Check size={20}/> : String(t.id).padStart(2,'0')}</span><span>WEEK {t.start}{t.end!==t.start ? `–${t.end}` : ''}</span>{t.id===currentTopic.id && <span className="current-label">UP NEXT</span>}</div><h2>{t.name}</h2><p>{t.description}</p><div className="mini-track"><i style={{width:`${completed/problems.length*100}%`}}/></div><div className="roadmap-footer"><span>{completed} / {problems.length} completed</span><ArrowRight size={16}/></div></button>;})}</div><p className="footnote">A curated practice collection, not a full copy of the official Striver sheet. Add more problems as you learn.</p></> : <section className="panel problems-panel"><div className="filters"><div className="search-box"><Search size={17}/><input aria-label="Search problems" placeholder="Search a problem…" value={query} onChange={e=>setQuery(e.target.value)}/></div><select aria-label="Filter by topic" value={topic} onChange={e=>setTopic(e.target.value)}><option value="all">All topics</option>{seed.map(t=><option key={t.id} value={t.id}>{t.name}</option>)}</select><select aria-label="Filter by difficulty" value={difficulty} onChange={e=>setDifficulty(e.target.value)}><option value="all">All difficulties</option>{['Easy','Medium','Hard'].map(d=><option key={d}>{d}</option>)}</select><select aria-label="Filter by status" value={status} onChange={e=>setStatus(e.target.value)}><option value="all">All statuses</option>{statuses.map(s=><option key={s}>{s}</option>)}</select></div><div className="results-count">{filtered.length} problems <span>Click a problem to add notes and schedule revision.</span></div>{problemTable(filtered)}</section>}
       <footer><span><Code2 size={14}/> Built for the long run.</span><span>Learn. Practise. Revisit. Repeat.</span></footer></main>
     </div>
-    {message && <div className="toast" role="status">{message}<button className="icon-btn" onClick={()=>setMessage('')} aria-label="Dismiss notification"><X size={15}/></button></div>}
+    <ToastContainer position="bottom-center" theme="dark" autoClose={5000} limit={3} />
     {selected && <div className="modal-backdrop" onClick={()=>setSelected(null)}><section className="modal" role="dialog" aria-modal="true" aria-labelledby="problem-title" onClick={e=>e.stopPropagation()}><div className="modal-header"><span className="eyebrow">PROBLEM WORKSPACE</span><button className="icon-btn" aria-label="Close problem" onClick={()=>setSelected(null)}><X size={20}/></button></div><h2 id="problem-title">{selected.title}</h2><div className="modal-subtitle"><span className={`difficulty ${selected.difficulty.toLowerCase()}`}>{selected.difficulty}</span><span>{seed.find(t=>t.id===selected.topic_id)?.name}</span></div>{selected.url && <a className="practice-link" href={selected.url} target="_blank" rel="noreferrer">{selected.id < 10000 ? 'Open Striver’s practice sheet' : 'Open problem'}<ExternalLink size={15}/></a>}<label className="field">Your approach & notes<textarea autoFocus rows={7} maxLength={20000} value={notes} onChange={e=>setNotes(e.target.value)} placeholder="What was the key idea? Note the approach, time complexity, and anything to remember."/></label><label className="field">Next revision<input type="date" value={revision} onChange={e=>setRevision(e.target.value)}/></label><div className="revision-shortcuts">{[1,7,30].map(days=><button key={days} onClick={()=>{const d=new Date();d.setDate(d.getDate()+days);setRevision(dateKey(d));}}>In {days} {days===1?'day':'days'}</button>)}<button onClick={()=>setRevision('')}>Clear</button></div><div className="modal-footer"><button className="text-btn" onClick={()=>setSelected(null)}>Cancel</button><button className="primary-btn" disabled={busy || mode==='loading'} onClick={saveNotes}>{busy ? 'Saving…' : 'Save notes'}</button></div></section></div>}
     {adding && <div className="modal-backdrop" onClick={()=>setAdding(false)}><form className="modal" role="dialog" aria-modal="true" aria-labelledby="add-title" onClick={e=>e.stopPropagation()} onSubmit={addProblem}><div className="modal-header"><span className="eyebrow">GROW YOUR COLLECTION</span><button type="button" className="icon-btn" aria-label="Close add problem" onClick={()=>setAdding(false)}><X size={20}/></button></div><h2 id="add-title">Add a new problem</h2><p className="muted">Make your practice plan your own.</p><label className="field">Problem name<input autoFocus name="title" required maxLength={160} placeholder="e.g. Search a 2D matrix"/></label><div className="form-row"><label className="field">Topic<select name="topic">{seed.map(t=><option value={t.id} key={t.id}>{t.name}</option>)}</select></label><label className="field">Difficulty<select name="difficulty"><option>Easy</option><option>Medium</option><option>Hard</option></select></label></div><label className="field">Problem link <span>(optional)</span><input name="url" type="url" maxLength={2048} placeholder="https://…"/></label><div className="modal-footer"><button type="button" className="text-btn" onClick={()=>setAdding(false)}>Cancel</button><button className="primary-btn" disabled={busy}>{busy ? 'Adding…' : 'Add problem'}<Plus size={16}/></button></div></form></div>}
   </div>;
